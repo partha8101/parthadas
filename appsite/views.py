@@ -174,6 +174,8 @@ def studentattendence(request):
 
 @login_required(login_url='signin')
 def studenteditpro(request):
+    if not request.user.is_student:
+        raise PermissionDenied
     if not request.user.status:
         return render(request, 'admin/notActive.html')
 
