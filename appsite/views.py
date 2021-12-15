@@ -185,7 +185,7 @@ def studenteditpro(request):
             request.POST, request.FILES, instance=userdata)
 
         if UserProfileForm.is_valid():
-            student = UserProfileForm.save(commit=True)
+            student = UserProfileForm.save(commit=False)
             student.is_student = True
             student.status = True
             UserProfileForm.save()
